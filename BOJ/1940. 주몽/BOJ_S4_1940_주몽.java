@@ -6,24 +6,24 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class BOJ_S4_1940_ÁÖ¸ù {
+public class BOJ_S4_1940_ì£¼ëª½ {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		
-		int N = Integer.parseInt(br.readLine());	// Àç·áÀÇ °³¼ö
-		int M = Integer.parseInt(br.readLine());	// °©¿ÊÀ» ¸¸µå´Âµ¥ ÇÊ¿äÇÑ ¼ö
+		int N = Integer.parseInt(br.readLine());	// ì¬ë£Œì˜ ê°œìˆ˜
+		int M = Integer.parseInt(br.readLine());	// ê°‘ì˜·ì„ ë§Œë“œëŠ”ë° í•„ìš”í•œ ìˆ˜
 		int[] arr = new int[N];
 		st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < N; i++) {
 			arr[i] = Integer.parseInt(st.nextToken());
 		}
 		
-		Arrays.sort(arr);	// Å©±â ºñ±³ -> ¿À¸§Â÷¼ø Á¤·Ä
+		Arrays.sort(arr);	// í¬ê¸° ë¹„êµ -> ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
 		
 		int count = 0;
-		// ¾çÂÊ ³¡ÀÇ À§Ä¡¸¦ ÅõÆ÷ÀÎÅÍ·Î ÁöÁ¤
+		// ì–‘ìª½ ëì˜ ìœ„ì¹˜ë¥¼ íˆ¬í¬ì¸í„°ë¡œ ì§€ì •
 		int i = 0;
 		int j = N-1;
 		
