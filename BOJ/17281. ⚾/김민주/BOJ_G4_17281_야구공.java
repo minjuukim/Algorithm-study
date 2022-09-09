@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class BOJ_G4_17281_¾ß±¸°ø {
+public class BOJ_G4_17281_ì•¼êµ¬ê³µ {
 	
 	static int N;
 	static int[][] game;
@@ -17,7 +17,7 @@ public class BOJ_G4_17281_¾ß±¸°ø {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		
-		N = Integer.parseInt(br.readLine());	// ÀÌ´× ¼ö
+		N = Integer.parseInt(br.readLine());	// ì´ë‹ ìˆ˜
 		game = new int[N+1][10];
 		
 		
@@ -31,7 +31,7 @@ public class BOJ_G4_17281_¾ß±¸°ø {
 		visit = new boolean[10];
 		player = new int[10];
 		
-		// 4¹ø Å¸ÀÚ´Â 1¹øÀ¸·Î °íÁ¤
+		// 4ë²ˆ íƒ€ìëŠ” 1ë²ˆìœ¼ë¡œ ê³ ì •
 		visit[4] = true;
 		player[4] = 1;
 		
@@ -40,7 +40,7 @@ public class BOJ_G4_17281_¾ß±¸°ø {
 
 	}
 	
-	// ¼ø¿­ => Å¸¼ø Á¤ÇÏ±â
+	// ìˆœì—´ => íƒ€ìˆœ ì •í•˜ê¸°
 	public static void perm(int count) {
 		
 		if(count == 10) {
@@ -58,85 +58,85 @@ public class BOJ_G4_17281_¾ß±¸°ø {
 		}
 	}
 	
-	// °æ±â ½ÇÇà
+	// ê²½ê¸° ì‹¤í–‰
 	public static void play() {
 		int score = 0;
-		int startPlayer = 1;	// ÀÌ´×¿¡¼­ Ã³À½ ½ÃÀÛÇÏ´Â Å¸ÀÚ
-		boolean[] base;		// È¨, 1·ç, 2·ç, 3·ç Ç¥Çö
+		int startPlayer = 1;	// ì´ë‹ì—ì„œ ì²˜ìŒ ì‹œì‘í•˜ëŠ” íƒ€ì
+		boolean[] base;		// í™ˆ, 1ë£¨, 2ë£¨, 3ë£¨ í‘œí˜„
 		
-		for (int i = 1; i <= N; i++) {	// N¹øÂ° ÀÌ´×±îÁö ½ÇÇà 
+		for (int i = 1; i <= N; i++) {	// Në²ˆì§¸ ì´ë‹ê¹Œì§€ ì‹¤í–‰ 
 			int outCnt = 0;
-			base = new boolean[4];		// base¸¦ »õ·Ó°Ô ÃÊ±âÈ­.
+			base = new boolean[4];		// baseë¥¼ ìƒˆë¡­ê²Œ ì´ˆê¸°í™”.
 			
 			outer: while(true) {
 				for(int j = startPlayer; j <= 9; j++) {
-					int hitter = game[i][player[j]];		// j¹øÂ° Å¸ÀÚÀÇ Çàµ¿
+					int hitter = game[i][player[j]];		// jë²ˆì§¸ íƒ€ìì˜ í–‰ë™
 					
 					switch(hitter) {
-					case 0:		// ¾Æ¿ô
+					case 0:		// ì•„ì›ƒ
 						outCnt++;
 						break;
 						
-					case 1:		// 1·çÅ¸
+					case 1:		// 1ë£¨íƒ€
 						for(int k=3; k>=1; k--) {
 							if(base[k]) {
 								
-								if(k==3) {		// 3·ç¿¡ ÀÖ´Â ¼±¼ö´Â È¨À¸·Î µé¾î¿À°í Á¡¼öÈ¹µæ.
+								if(k==3) {		// 3ë£¨ì— ìˆëŠ” ì„ ìˆ˜ëŠ” í™ˆìœ¼ë¡œ ë“¤ì–´ì˜¤ê³  ì ìˆ˜íšë“.
 									score++;
-									base[k] = false;	// 3·ç´Â ºñ¾îÀÖ°Ô µÊ.
+									base[k] = false;	// 3ë£¨ëŠ” ë¹„ì–´ìˆê²Œ ë¨.
 									continue;
 								}
 								
-								// 1, 2·çÀÇ °æ¿ì 1·ç¾¿ Áø·çÇÏ°í, ¿ø·¡ ÀÖ´ø ÀÚ¸®´Â ºñ¾îÀÖ°Ô µÊ.
+								// 1, 2ë£¨ì˜ ê²½ìš° 1ë£¨ì”© ì§„ë£¨í•˜ê³ , ì›ë˜ ìˆë˜ ìë¦¬ëŠ” ë¹„ì–´ìˆê²Œ ë¨.
 								base[k] = false;
 								base[k+1] = true;
 							}
 						}
 						
-						base[1] = true;		// È¨¿¡¼­ 1·ç·Î Áø·ç.
+						base[1] = true;		// í™ˆì—ì„œ 1ë£¨ë¡œ ì§„ë£¨.
 						break;
 					
-					case 2:		// 2·çÅ¸
+					case 2:		// 2ë£¨íƒ€
 						for(int k=3; k>=1; k--) {
 							if(base[k]) {
-								if(k==3 || k==2) {	// 3·ç or 2·ç¿¡ ÀÖ´Â ¼±¼ö´Â È¨À¸·Î µé¾î¿À°í Á¡¼ö È¹µæ.
+								if(k==3 || k==2) {	// 3ë£¨ or 2ë£¨ì— ìˆëŠ” ì„ ìˆ˜ëŠ” í™ˆìœ¼ë¡œ ë“¤ì–´ì˜¤ê³  ì ìˆ˜ íšë“.
 									score++;
-									base[k] = false;	// 3·ç or 2·ç´Â ºñ¾îÀÖ°Ô µÊ.
+									base[k] = false;	// 3ë£¨ or 2ë£¨ëŠ” ë¹„ì–´ìˆê²Œ ë¨.
 									continue;
 								}
 								
-								// 1·çÀÇ °æ¿ì 2·ç¾¿ Áø·çÇÏ°í, ¿ø·¡ ÀÖ´ø ÀÚ¸®´Â ºñ¾îÀÖ°Ô µÊ.
+								// 1ë£¨ì˜ ê²½ìš° 2ë£¨ì”© ì§„ë£¨í•˜ê³ , ì›ë˜ ìˆë˜ ìë¦¬ëŠ” ë¹„ì–´ìˆê²Œ ë¨.
 								base[k] = false;
 								base[k+2] = true;
 							}
 						}
-						base[2] = true;		// È¨¿¡¼­ 2·ç·Î Áø·ç.
+						base[2] = true;		// í™ˆì—ì„œ 2ë£¨ë¡œ ì§„ë£¨.
 						break;
 					
-					case 3:		// 3·çÅ¸
+					case 3:		// 3ë£¨íƒ€
 						for(int k=3; k>=1; k--) {
-							if(base[k]) {		// È¨ Á¦¿Ü ¸ğµç ¼±¼ö´Â È¨À¸·Î µé¾î¿À°í, Á¡¼ö È¹µæ.
+							if(base[k]) {		// í™ˆ ì œì™¸ ëª¨ë“  ì„ ìˆ˜ëŠ” í™ˆìœ¼ë¡œ ë“¤ì–´ì˜¤ê³ , ì ìˆ˜ íšë“.
 								score++;
 								base[k] = false;
 							}
 						}
-						// È¨¿¡¼­ 3·ç·Î Áø·ç.
+						// í™ˆì—ì„œ 3ë£¨ë¡œ ì§„ë£¨.
 						base[3] = true;
 						break;
 						
-					case 4:		// È¨·±
+					case 4:		// í™ˆëŸ°
 						for(int k=1; k<=3; k++) {
-							if(base[k]) {		// ·ç »ó¿¡ ¸ğµç ÁÖÀÚ°¡ È¨À¸·Î µé¾î¿À°í, Á¡¼ö È¹µæ.
+							if(base[k]) {		// ë£¨ ìƒì— ëª¨ë“  ì£¼ìê°€ í™ˆìœ¼ë¡œ ë“¤ì–´ì˜¤ê³ , ì ìˆ˜ íšë“.
 								score++;
 								base[k] = false;
 							}
 						}
-						score++;	// È¨·±Ä£ Å¸ÀÚÀÇ Á¡¼ö 1Á¡ Ãß°¡.
+						score++;	// í™ˆëŸ°ì¹œ íƒ€ìì˜ ì ìˆ˜ 1ì  ì¶”ê°€.
 						break;
 					}
 					
 					if(outCnt == 3) {
-						startPlayer = j+1;		// startPlayer¸¦ ±× ´ÙÀ½ Å¸ÀÚ·Î ÃÊ±âÈ­
+						startPlayer = j+1;		// startPlayerë¥¼ ê·¸ ë‹¤ìŒ íƒ€ìë¡œ ì´ˆê¸°í™”
 						if(startPlayer == 10) {
 							startPlayer = 1;
 						}
@@ -144,8 +144,8 @@ public class BOJ_G4_17281_¾ß±¸°ø {
 					}
 				}
 				
-				// 1~9¹ø±îÁö Å¸ÀÚ°¡ ÇÑ ÀÌ´×¿¡ ÀüºÎ ¾ÈÅ¸¸¦ ÃÄ¼­ ¾Æ¿ôÄ«¿îÆ®°¡ ¹ß»ıÇÏÁö ¾Ê°Ô µÇ¸é,
-                // À§ ¹İº¹¹®ÀÌ ¹«ÇÑ ·çÇÁ¸¦ µ¹±â¶§¹®¿¡ startPlayer = 1·Î ÃÊ±âÈ­ÇØ¾ß ÇÔ.
+				// 1~9ë²ˆê¹Œì§€ íƒ€ìê°€ í•œ ì´ë‹ì— ì „ë¶€ ì•ˆíƒ€ë¥¼ ì³ì„œ ì•„ì›ƒì¹´ìš´íŠ¸ê°€ ë°œìƒí•˜ì§€ ì•Šê²Œ ë˜ë©´,
+                // ìœ„ ë°˜ë³µë¬¸ì´ ë¬´í•œ ë£¨í”„ë¥¼ ëŒê¸°ë•Œë¬¸ì— startPlayer = 1ë¡œ ì´ˆê¸°í™”í•´ì•¼ í•¨.
 				startPlayer = 1;
 				
 			}//outer
