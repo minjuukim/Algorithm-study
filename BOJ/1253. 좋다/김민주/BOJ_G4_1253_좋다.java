@@ -6,13 +6,13 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class BOJ_G4_1253_ÁÁ´Ù {
+public class BOJ_G4_1253_ì¢‹ë‹¤ {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		
-		int N = Integer.parseInt(br.readLine());	// ¼öÀÇ °³¼ö
+		int N = Integer.parseInt(br.readLine());	// ìˆ˜ì˜ ê°œìˆ˜
 		int[] arr = new int[N];
 		
 		st = new StringTokenizer(br.readLine());
@@ -29,13 +29,13 @@ public class BOJ_G4_1253_ÁÁ´Ù {
 			int j = N-1;
 			long key = arr[k];
 			
-			// ÅõÆ÷ÀÎÅÍ ¾Ë°í¸®Áò
+			// íˆ¬í¬ì¸í„° ì•Œê³ ë¦¬ì¦˜
 			while(i<j) {
 				
 				int sum = arr[i] + arr[j];
 				
-				if(sum == key) {	// key°¡ ¼­·Î ´Ù¸¥ µÎ ¼öÀÇ ÇÕÀÌ¾î¾ß ÇÔÀ» Ã¼Å©.
-					// ÀÚ±â ÀÚ½ÅÀ» Æ÷ÇÔÇÏ¸é ¾ÈµÊ -> ¿¹¿ÜÃ³¸®
+				if(sum == key) {	// keyê°€ ì„œë¡œ ë‹¤ë¥¸ ë‘ ìˆ˜ì˜ í•©ì´ì–´ì•¼ í•¨ì„ ì²´í¬.
+					// ìê¸° ìì‹ ì„ í¬í•¨í•˜ë©´ ì•ˆë¨ -> ì˜ˆì™¸ì²˜ë¦¬
 					if(i!=k && j!=k) {
 						count++;
 						break;
