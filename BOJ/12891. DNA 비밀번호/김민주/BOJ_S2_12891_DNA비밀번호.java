@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class BOJ_S2_12891_DNAºñ¹Ğ¹øÈ£ {
+public class BOJ_S2_12891_DNAë¹„ë°€ë²ˆí˜¸ {
 	static int ans;
 	static String dnaStr;
 	static int[] passCheck, cnt;
@@ -14,10 +14,10 @@ public class BOJ_S2_12891_DNAºñ¹Ğ¹øÈ£ {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		
-		int S = Integer.parseInt(st.nextToken());	// DNA ¹®ÀÚ¿­ ±æÀÌ
-		int P = Integer.parseInt(st.nextToken());	// ºÎºĞ¹®ÀÚ¿­ ±æÀÌ
+		int S = Integer.parseInt(st.nextToken());	// DNA ë¬¸ìì—´ ê¸¸ì´
+		int P = Integer.parseInt(st.nextToken());	// ë¶€ë¶„ë¬¸ìì—´ ê¸¸ì´
 		
-		dnaStr = br.readLine();		// DNA ¹®ÀÚ¿­
+		dnaStr = br.readLine();		// DNA ë¬¸ìì—´
 		
 		passCheck = new int[4];
 		st = new StringTokenizer(br.readLine());
