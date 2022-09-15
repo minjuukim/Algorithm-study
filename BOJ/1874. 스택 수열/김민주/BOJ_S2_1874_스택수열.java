@@ -5,14 +5,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Stack;
 
-public class BOJ_S2_1874_½ºÅÃ¼ö¿­ {
+public class BOJ_S2_1874_ìŠ¤íƒìˆ˜ì—´ {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
 		
-		int n = Integer.parseInt(br.readLine());	// ¼ö¿­ÀÇ °³¼ö
-		int[] numbers = new int[n];		// ¼ö¿­
+		int n = Integer.parseInt(br.readLine());	// ìˆ˜ì—´ì˜ ê°œìˆ˜
+		int[] numbers = new int[n];		// ìˆ˜ì—´
 		
 		for(int i=0; i<n; i++) {
 			numbers[i] = Integer.parseInt(br.readLine());
