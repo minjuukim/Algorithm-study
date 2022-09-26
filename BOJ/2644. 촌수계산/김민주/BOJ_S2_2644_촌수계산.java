@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class BOJ_S2_2644_ÃÌ¼ö°è»ê {
+public class BOJ_S2_2644_ì´Œìˆ˜ê³„ì‚° {
 	static int n, p2, count, ans=-1;
 	static int[][] map;
 	static boolean[] visited ;
@@ -14,7 +14,7 @@ public class BOJ_S2_2644_ÃÌ¼ö°è»ê {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		
-		n = Integer.parseInt(br.readLine());	// ÀüÃ¼ »ç¶÷ ¼ö
+		n = Integer.parseInt(br.readLine());	// ì „ì²´ ì‚¬ëŒ ìˆ˜
 		map = new int[n+1][n+1];
 		visited = new boolean[n+1];
 		
@@ -22,7 +22,7 @@ public class BOJ_S2_2644_ÃÌ¼ö°è»ê {
 		int p1 = Integer.parseInt(st.nextToken());
 		p2 = Integer.parseInt(st.nextToken());
 		
-		int m = Integer.parseInt(br.readLine());	// °ü°èÀÇ °³¼ö
+		int m = Integer.parseInt(br.readLine());	// ê´€ê³„ì˜ ê°œìˆ˜
 		for (int i = 0; i < m; i++) {
 			st = new StringTokenizer(br.readLine());
 			int x = Integer.parseInt(st.nextToken());
