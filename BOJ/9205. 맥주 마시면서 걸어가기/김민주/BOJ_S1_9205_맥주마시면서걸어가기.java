@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class BOJ_S1_9205_¸ÆÁÖ¸¶½Ã¸é¼­°É¾î°¡±â {
+public class BOJ_S1_9205_ë§¥ì£¼ë§ˆì‹œë©´ì„œê±¸ì–´ê°€ê¸° {
 	
 	static int N, position[][], map[][];
 	static boolean[][] visited;
@@ -18,7 +18,7 @@ public class BOJ_S1_9205_¸ÆÁÖ¸¶½Ã¸é¼­°É¾î°¡±â {
 		StringTokenizer st;
 		sb = new StringBuilder();
 		
-		int T = Integer.parseInt(br.readLine());	// Å×½ºÆ®ÄÉÀÌ½º ¼ö
+		int T = Integer.parseInt(br.readLine());	// í…ŒìŠ¤íŠ¸ì¼€ì´ìŠ¤ ìˆ˜
 		
 		for (int t = 0; t < T; t++) {
 			
@@ -26,13 +26,13 @@ public class BOJ_S1_9205_¸ÆÁÖ¸¶½Ã¸é¼­°É¾î°¡±â {
 			position = new int[N][2];
 			for (int i = 0; i < N; i++) {
 				st = new StringTokenizer(br.readLine());
-				position[i][0] = Integer.parseInt(st.nextToken());	// xÁÂÇ¥
-				position[i][1] = Integer.parseInt(st.nextToken());	// yÁÂÇ¥
+				position[i][0] = Integer.parseInt(st.nextToken());	// xì¢Œí‘œ
+				position[i][1] = Integer.parseInt(st.nextToken());	// yì¢Œí‘œ
 			}
 			
 			map = new int[N][N];
 			visited = new boolean[N][N];
-			// ¾ç¹æÇâÀ¸·Î °¢ À§Ä¡ »çÀÌÀÇ °Å¸®¸¦ ÀúÀå
+			// ì–‘ë°©í–¥ìœ¼ë¡œ ê° ìœ„ì¹˜ ì‚¬ì´ì˜ ê±°ë¦¬ë¥¼ ì €ì¥
 			for (int i = 0; i < N; i++) {
 				for (int j = i+1; j < N; j++) {
 					map[i][j] = Math.abs(position[i][0] - position[j][0]) + Math.abs(position[i][1] - position[j][1]);
@@ -42,7 +42,7 @@ public class BOJ_S1_9205_¸ÆÁÖ¸¶½Ã¸é¼­°É¾î°¡±â {
 			
 			bfs();
 			
-			// Á¤´ä ÀúÀå
+			// ì •ë‹µ ì €ì¥
 			for (int i = 0; i < N; i++) {
 				if(visited[N-1][i]) {
 					sb.append("happy\n");
@@ -59,15 +59,15 @@ public class BOJ_S1_9205_¸ÆÁÖ¸¶½Ã¸é¼­°É¾î°¡±â {
 	
 	public static void bfs() {
 		Queue<Integer> que = new LinkedList<>();
-		que.offer(0);	// Áı¿¡¼­ Ãâ¹ß
+		que.offer(0);	// ì§‘ì—ì„œ ì¶œë°œ
 		visited[0][0] = true;
 		
 		while(!que.isEmpty()) {
 			int cur = que.poll();
 			
 			for (int i = 0; i < N; i++) {
-				if(map[cur][i] <= 1000 && !visited[cur][i]) {	// °Å¸®°¡ µÇ´Â ¸ğµç ¹æÇâÀ¸·Î °¡º¸±â
-					// ¾ç¹æÇâ ¹æ¹® Ã¼Å©
+				if(map[cur][i] <= 1000 && !visited[cur][i]) {	// ê±°ë¦¬ê°€ ë˜ëŠ” ëª¨ë“  ë°©í–¥ìœ¼ë¡œ ê°€ë³´ê¸°
+					// ì–‘ë°©í–¥ ë°©ë¬¸ ì²´í¬
 					visited[cur][i] = true;
 					visited[i][cur] = true;
 					que.offer(i);
