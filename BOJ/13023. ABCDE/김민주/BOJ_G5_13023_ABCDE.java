@@ -8,8 +8,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-// ABCDE°ü°è -> Àç±Í ÇÔ¼ö ÇüÅÂ¿Í ºñ½Á 
-// 5°³ÀÇ ³ëµå°¡ Àç±Í ÇüÅÂ·Î ¿¬°á => Àç±ÍÀÇ ±íÀÌ°¡ 5ÀÌ»óÀÌ¸é 1, ¾Æ´Ï¸é 0 Ãâ·Â
+// ABCDEê´€ê³„ -> ì¬ê·€ í•¨ìˆ˜ í˜•íƒœì™€ ë¹„ìŠ· 
+// 5ê°œì˜ ë…¸ë“œê°€ ì¬ê·€ í˜•íƒœë¡œ ì—°ê²° => ì¬ê·€ì˜ ê¹Šì´ê°€ 5ì´ìƒì´ë©´ 1, ì•„ë‹ˆë©´ 0 ì¶œë ¥
 public class BOJ_G5_13023_ABCDE {
 	
 	static boolean arrive, visited[];
@@ -19,17 +19,17 @@ public class BOJ_G5_13023_ABCDE {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		
-		int N = Integer.parseInt(st.nextToken());	// »ç¶÷ÀÇ ¼ö
-		int M = Integer.parseInt(st.nextToken());	// Ä£±¸ °ü°èÀÇ ¼ö
+		int N = Integer.parseInt(st.nextToken());	// ì‚¬ëŒì˜ ìˆ˜
+		int M = Integer.parseInt(st.nextToken());	// ì¹œêµ¬ ê´€ê³„ì˜ ìˆ˜
 		adjList = new ArrayList[N];
 		visited = new boolean[N];
 		
-		// ÀÎÁ¢ ¸®½ºÆ®ÀÇ °¢ ArrayList ÃÊ±âÈ­
+		// ì¸ì ‘ ë¦¬ìŠ¤íŠ¸ì˜ ê° ArrayList ì´ˆê¸°í™”
 		for (int i = 0; i < N; i++) {
 			adjList[i] = new ArrayList<>();
 		}
 		
-		// ÀÎÁ¢ ¸®½ºÆ®¿¡ ±×·¡ÇÁ µ¥ÀÌÅÍ ÀúÀå
+		// ì¸ì ‘ ë¦¬ìŠ¤íŠ¸ì— ê·¸ë˜í”„ ë°ì´í„° ì €ì¥
 		for (int i = 0; i < M; i++) {
 			st = new StringTokenizer(br.readLine());
 			int a = Integer.parseInt(st.nextToken());
@@ -38,10 +38,10 @@ public class BOJ_G5_13023_ABCDE {
 			adjList[b].add(a);
 		}
 		
-		// °¢ ³ëµå¸¶´Ù dfs ½ÇÇà
+		// ê° ë…¸ë“œë§ˆë‹¤ dfs ì‹¤í–‰
 		for(int i=0; i<N; i++) {
-			dfs(i, 1);			// depth 1ºÎÅÍ ½ÃÀÛ
-			if(arrive) break;	// depth°¡ 5¿¡ µµ´ŞÇÑ ÀûÀÌ ÀÖ´Ù¸é
+			dfs(i, 1);			// depth 1ë¶€í„° ì‹œì‘
+			if(arrive) break;	// depthê°€ 5ì— ë„ë‹¬í•œ ì ì´ ìˆë‹¤ë©´
 		}
 		
 		if(arrive) {
@@ -54,8 +54,8 @@ public class BOJ_G5_13023_ABCDE {
 	
 	public static void dfs(int i, int depth) {
 		
-		if(depth==5 || arrive) {	// depth°¡ 5°¡ µÇ¸é ÇÁ·Î±×·¥ Á¾·á
-			arrive = true;		// µµÂø È®ÀÎ
+		if(depth==5 || arrive) {	// depthê°€ 5ê°€ ë˜ë©´ í”„ë¡œê·¸ë¨ ì¢…ë£Œ
+			arrive = true;		// ë„ì°© í™•ì¸
 			return;
 		}
 		
@@ -63,7 +63,7 @@ public class BOJ_G5_13023_ABCDE {
 		
 		for(int k : adjList[i]) {
 			if(!visited[k]) {
-				dfs(k, depth+1);	// Àç±Í È£ÃâÀÌ µÉ ¶§¸¶´Ù depth¸¦ 1¾¿ Áõ°¡
+				dfs(k, depth+1);	// ì¬ê·€ í˜¸ì¶œì´ ë  ë•Œë§ˆë‹¤ depthë¥¼ 1ì”© ì¦ê°€
 			}
 		}
 		visited[i] = false;
