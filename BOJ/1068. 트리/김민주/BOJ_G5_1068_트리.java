@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class BOJ_G5_1068_Æ®¸® {
+public class BOJ_G5_1068_íŠ¸ë¦¬ {
 	
 	static int N, deleteNode, ans;
 	static ArrayList<Integer>[] tree;
@@ -15,11 +15,11 @@ public class BOJ_G5_1068_Æ®¸® {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		
-		N = Integer.parseInt(br.readLine());	// ³ëµåÀÇ °³¼ö
+		N = Integer.parseInt(br.readLine());	// ë…¸ë“œì˜ ê°œìˆ˜
 		tree = new ArrayList[N];
 		int root = 0;
 
-		// ÀÎÁ¢¸®½ºÆ® ¹è¿­ ÃÊ±âÈ­ 
+		// ì¸ì ‘ë¦¬ìŠ¤íŠ¸ ë°°ì—´ ì´ˆê¸°í™” 
 		for(int i = 0; i < N; i++) {
 			tree[i] = new ArrayList<>();
 		}
@@ -27,20 +27,20 @@ public class BOJ_G5_1068_Æ®¸® {
 		st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < N; i++) {
 			
-		    /* ÀÔ·Â°ªÀ» ¹ŞÀ» ¶§ ÃÊ±âÈ­¸¦ °°ÀÌ ÇÏ°Ô µÇ¸é, ÀÚ½ÄÀÌ ºÎ¸ğº¸´Ù ¹øÈ£°¡ ÀÛÀ» °æ¿ì ¾ÆÁ÷ ÃÊ±âÈ­¸¦ ÇÏÁö ¾ÊÀº ½ÃÁ¡ÀÌ±â ¶§¹®¿¡ 
-			   ==> NullpointerException ¹ß»ı => ·±Å¸ÀÓ ¿¡·¯ ¹ß»ı!
-			adjList[i] = new ArrayList<>();   --> µû¶ó¼­ ¹İµå½Ã ÀÔ·Â °ªÀ» ¹Ş±â Àü ÃÊ±âÈ­¸¦ ÇØÁà¾ß ÇÑ´Ù!! 		 */
+		    /* ì…ë ¥ê°’ì„ ë°›ì„ ë•Œ ì´ˆê¸°í™”ë¥¼ ê°™ì´ í•˜ê²Œ ë˜ë©´, ìì‹ì´ ë¶€ëª¨ë³´ë‹¤ ë²ˆí˜¸ê°€ ì‘ì„ ê²½ìš° ì•„ì§ ì´ˆê¸°í™”ë¥¼ í•˜ì§€ ì•Šì€ ì‹œì ì´ê¸° ë•Œë¬¸ì— 
+			   ==> NullpointerException ë°œìƒ => ëŸ°íƒ€ì„ ì—ëŸ¬ ë°œìƒ!
+			adjList[i] = new ArrayList<>();   --> ë”°ë¼ì„œ ë°˜ë“œì‹œ ì…ë ¥ ê°’ì„ ë°›ê¸° ì „ ì´ˆê¸°í™”ë¥¼ í•´ì¤˜ì•¼ í•œë‹¤!! 		 */
 			
 			int parent = Integer.parseInt(st.nextToken());
 			
 			if(parent != -1) {
-				tree[parent].add(i);	// ³ëµåÀÇ ÀÚ½Ä ³ëµåµéÀ» ¸®½ºÆ®¿¡ Ãß°¡
+				tree[parent].add(i);	// ë…¸ë“œì˜ ìì‹ ë…¸ë“œë“¤ì„ ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€
 			} else {
 				root = i;
 			}
 		}
 		
-		deleteNode = Integer.parseInt(br.readLine());	// »èÁ¦ÇÒ ³ëµå ¹øÈ£
+		deleteNode = Integer.parseInt(br.readLine());	// ì‚­ì œí•  ë…¸ë“œ ë²ˆí˜¸
 		
 		if(deleteNode == root) System.out.println(0);
 		else {
@@ -50,14 +50,14 @@ public class BOJ_G5_1068_Æ®¸® {
 		}
 	}
 	
-	// Àç±ÍÀûÀ¸·Î µ¹¸ç »èÁ¦ÇÒ ³ëµå (deleteNode) »èÁ¦ÇÏ±â
+	// ì¬ê·€ì ìœ¼ë¡œ ëŒë©° ì‚­ì œí•  ë…¸ë“œ (deleteNode) ì‚­ì œí•˜ê¸°
 	public static void dfs(int node) {
 		
 		for(int n = 0; n < tree[node].size(); n++) {
 			int child = tree[node].get(n);
 			
 			if(child == deleteNode) {
-				tree[node].remove(n);	// ³ëµå »èÁ¦
+				tree[node].remove(n);	// ë…¸ë“œ ì‚­ì œ
 				return;
 			}
 			
@@ -65,10 +65,10 @@ public class BOJ_G5_1068_Æ®¸® {
 		}
 	}
 	
-	// ¸®ÇÁ³ëµå °³¼ö ±¸ÇÏ±â
+	// ë¦¬í”„ë…¸ë“œ ê°œìˆ˜ êµ¬í•˜ê¸°
 	public static void findLeaf(int node) {
 		
-		if(tree[node].size() == 0) {	// ÀÚ½ÄÀÌ ¾ø´Â ³ëµåÀÏ °æ¿ì Ä«¿îÆ® 
+		if(tree[node].size() == 0) {	// ìì‹ì´ ì—†ëŠ” ë…¸ë“œì¼ ê²½ìš° ì¹´ìš´íŠ¸ 
 			ans++;
 			return;
 		}
